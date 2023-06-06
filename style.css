@@ -1,0 +1,102 @@
+:root {
+    --darkest: #172774;
+    --darker: #FF0075;
+    --lighter: #77D970;
+    --lightest: #EEEEEE;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body { 
+    background-color: var(--darkest);
+}
+
+h1 {
+    color: var(--darker);
+    text-align: center;
+    padding: 20px;
+}
+
+section {
+    background-color: var(--lightest);
+    width: 500px;
+    margin: auto;
+    margin-top: 100px;
+    border-radius: 5px;
+}
+
+.rps-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rps-input {
+    padding: 7px;
+    width: 100px;
+    margin: 5px;
+    border: 2px solid var(--lighter);
+    border-radius: 5px;
+}
+
+.submit-btn {
+    width: 40px;
+    padding: 5px;
+    border-radius: 90%;
+    margin: 10px 10px 0px 10px;
+    background-color: var(--lighter);
+    color: var(--lightest);
+    font-weight: bold;
+    border: 2px solid var(--lighter);
+}
+
+.response-div {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+.response-div > p {
+    background-color: var(--darker);
+    color: var(--lightest);
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.score-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 20px;
+    margin-top: 10px;
+    background-color: var(--lighter);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.winner-div {
+    text-align: center;
+    color: var(--darkest);
+    font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+    section {
+        width: 85%;
+    }
+
+    .response-div {
+        display: flex;
+        flex-direction: column-reverse;
+        padding: 20px;
+        height: 100px;
+        margin: 5px;
+        text-align: center;
+    }
+}
