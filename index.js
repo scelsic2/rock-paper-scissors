@@ -4,6 +4,7 @@ const responseDiv = document.querySelector('.response-div')
 const inputP = document.createElement('p')
 const scoreDiv = document.querySelector('.score-div')
 const winnerDiv = document.querySelector('.winner-div')
+const computerChoices = ['Rock', 'Paper', 'Scissors'];
 
 let word = ''
 let response = ''
@@ -12,20 +13,17 @@ let userScore = 0;
 let computerScore = 0;
 
 // computer random select
-function computersResponse (computerChoices) {
-    computerChoices = ['Rock', 'Paper', 'Scissors']
+function computersResponse () {
     const randomI = Math.floor(Math.random() * computerChoices.length)
     response = computerChoices[randomI]
     console.log('computer response: ' + response)
     const computerP = document.createElement('p')
     computerP.innerText = `Computer's Choice: ` + response
     responseDiv.appendChild(computerP)
-    return response
 }
 
 // must recognize r, p, s
 function userInput (letter) {
-    letter = rpsInput.value
     const caps = letter.toUpperCase()
     
     console.log('user choice: ' + caps)
@@ -60,8 +58,8 @@ function userInput (letter) {
     return word
 }
 
-function printUserInput(input) {
-    input = userInput()
+function printUserInput() {
+    let input = userInput(rpsInput.value);
     console.log('print user input: ' + input)
 
     if (input === ''){
@@ -80,9 +78,7 @@ function scoreKeeper (user, computer) {
     scoreDiv.innerHTML = ''
 
     let winner = ''
-    
-    user = word
-    computer = response
+
     if (user === '') {
         console.log('error')
     } else if (user === computer) {
@@ -134,14 +130,9 @@ function scoreKeeper (user, computer) {
 function go (e) {
     e.preventDefault()
     responseDiv.innerHTML = ''
-    printUserInput()
+    printUserInput();
     rpsInput.value = ''
-    scoreKeeper()
+    scoreKeeper(word, response);
 }
 
 submitBtn.addEventListener('click', go)
-
-
-
-
-// total wins, losses, and ties in local storage
